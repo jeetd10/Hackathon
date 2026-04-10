@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Aura OS - The Future of Mental Wellness
 
-## Getting Started
+Aura OS is a premium, immersive mental health dashboard that combines cognitive behavioral science with a stunning "Brain-Centric" radial UI and a deep gamification engine. Designed with a **Warm Serenity** aesthetic, it transforms daily wellness into an engaging, rewarded journey.
+
+![Aura OS Preview](public/brain-hero.png)
+
+## 🌌 Core Features
+
+### 1. Neural Hub
+The centerpiece of Aura OS. A high-fidelity 3D brain visualization surrounded by orbital therapeutic nodes.
+*   **Active Pathways:** Glowing SVG lines visualize neural connections.
+*   **Daily Sync:** The central brain glows brighter as you complete tasks, providing immediate visual satisfaction.
+
+### 2. Gamified Reward Engine
+Built to drive consistent engagement through positive reinforcement.
+*   **XP System:** Earn Experience Points for everything—breathing, mood logging, gratitude, and cognitive challenges.
+*   **Progression:** Level up through 8 specialized tiers (from 🌱 **Seedling** to 🌌 **Cosmic Awareness**).
+*   **Achievements:** 9 unique unlockable badges to celebrate milestones like "Week Warrior" and "Sound Healer".
+*   **Live Feedback:** Animated toast notifications and level-up bursts provide instant dopamine loops.
+
+### 3. Therapeutic Suite
+*   **Ambient Soundscape:** Layered procedural audio (Rain, Ocean, Forest, etc.) for focus or sleep.
+*   **Breathing Apparatus:** A guided SVG orb that syncs with your breath.
+*   **Cognitive Cards:** Flip-cards to help identify and challenge thought distortions.
+*   **Mood Heatmap:** Visual weekly analytics to track emotional trends.
+*   **Daily Intention:** A focused "Lock-in" tool to set your morning goal.
+
+## 🛠️ Tech Stack
+
+*   **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+*   **Style:** [Tailwind CSS 4](https://tailwindcss.com/)
+*   **Motion:** [Framer Motion](https://www.framer.com/motion/)
+*   **Language:** [TypeScript](https://www.typescriptlang.org/)
+*   **Persistence:** Local Storage (Purely client-side demo, no DB required)
+*   **Icons:** Lucide React
+
+## 🚀 Getting Started
 
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚢 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The easiest way to deploy is using the **Vercel Platform**:
 
-## Learn More
+1. Push this code to GitHub.
+2. Connect your repo to [Vercel](https://vercel.com).
+3. Experience Aura OS live.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Built for the Hackathon by [Jeet Desai](https://github.com/jeetd10)
