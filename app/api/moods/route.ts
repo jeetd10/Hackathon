@@ -9,6 +9,8 @@ export async function GET() {
   const session = await getSession();
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
+  try {
+
   const now = new Date();
   const weekAgo = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6);
 
@@ -78,12 +80,21 @@ export async function GET() {
     });
   }
 
-  return NextResponse.json({
-    todayMood,
-    chartData,
-    stats: { avgWellbeing, trend: avgWellbeing - prevAvg, totalEntries: moods.length },
-    streak,
-  });
+    return NextResponse.json({
+      todayMood,
+      chartData,
+      stats: { avgWellbeing, trend: avgWellbeing - prevAvg, totalEntries: moods.length },
+      streak,
+    });
+  } catch (err) {
+    console.error('Prisma GET error in moods:', err);
+    return NextResponse.json({
+      todayMood: null,
+      chartData: [],
+      stats: { avgWellbeing: 0, trend: 0, totalEntries: 0 },
+      streak: 0,
+    });
+  }
 }
 
 export async function POST(req: Request) {

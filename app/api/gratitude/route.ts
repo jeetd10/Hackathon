@@ -3,25 +3,32 @@ import { NextResponse } from 'next/server';
 import { prisma } from '../../lib/db';
 import { getSession } from '../../lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   const session = await getSession();
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-  const now = new Date();
-  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  try {
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
-  const todaysEntries = await prisma.gratitudeEntry.findMany({
-    where: { userId: session.userId, createdAt: { gte: todayStart } },
-    orderBy: { createdAt: 'desc' },
-  });
+    const todaysEntries = await prisma.gratitudeEntry.findMany({
+      where: { userId: session.userId, createdAt: { gte: todayStart } },
+      orderBy: { createdAt: 'desc' },
+    });
 
-  const recentEntries = await prisma.gratitudeEntry.findMany({
-    where: { userId: session.userId },
-    orderBy: { createdAt: 'desc' },
-    take: 10,
-  });
+    const recentEntries = await prisma.gratitudeEntry.findMany({
+      where: { userId: session.userId },
+      orderBy: { createdAt: 'desc' },
+      take: 10,
+    });
 
-  return NextResponse.json({ todaysEntries, recentEntries });
+    return NextResponse.json({ todaysEntries, recentEntries });
+  } catch (err) {
+    console.error('Prisma GET error in gratitude:', err);
+    return NextResponse.json({ todaysEntries: [], recentEntries: [] });
+  }
 }
 
 export async function POST(req: Request) {
