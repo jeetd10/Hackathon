@@ -53,16 +53,6 @@ export default function Home() {
   const rewards = useRewards();
 
   useEffect(() => {
-    fetch('/api/auth/me')
-      .then(res => {
-        if (!res.ok) throw new Error('Not authenticated');
-        return res.json();
-      })
-      .then(data => {
-        if (data.user) setUserName(data.user.name);
-      })
-      .catch(console.error);
-
     fetch('/api/moods')
       .then(res => res.json())
       .then(data => {
